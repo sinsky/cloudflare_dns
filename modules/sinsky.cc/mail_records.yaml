@@ -1,0 +1,50 @@
+verification:
+  name: "@"
+  type: TXT
+  content: "\"protonmail-verification=6ab8511f92d0a0626de1c959ad72fa8d45e6743b\""
+  ttl: 3600
+  comment: "ProtonMail verification"
+spf:
+  name: "@"
+  type: TXT
+  content: "\"v=spf1 include:_spf.protonmail.ch ~all\""
+  ttl: 3600
+  comment: "ProtonMail SPF"
+dmarc:
+  name: "_dmarc"
+  type: TXT
+  content: "\"v=DMARC1; p=quarantine\""
+  ttl: 3600
+  comment: "ProtonMail DMARC"
+mx-1:
+  name: "@"
+  type: MX
+  content: mail.protonmail.ch
+  ttl: 3600
+  priority: 10
+  comment: "ProtonMail MX"
+mx-2:
+  name: "@"
+  type: MX
+  content: mailsec.protonmail.ch
+  ttl: 3600
+  priority: 20
+  comment: "ProtonMail MX"
+domainkey-1:
+  name: protonmail._domainkey
+  type: CNAME
+  content: protonmail.domainkey.dglyzoia2xlbrc5ilrzvzetedbj4x4dgkstnc7ewxloqohjpupf7a.domains.proton.ch
+  ttl: 3600
+  comment: "ProtonMail DomainKey"
+domainkey-2:
+  name: protonmail2._domainkey
+  type: CNAME
+  content: protonmail2.domainkey.dglyzoia2xlbrc5ilrzvzetedbj4x4dgkstnc7ewxloqohjpupf7a.domains.proton.ch
+  ttl: 3600
+  comment: "ProtonMail DomainKey"
+domainkey-3:
+  name: protonmail3._domainkey
+  type: CNAME
+  content: protonmail3.domainkey.dglyzoia2xlbrc5ilrzvzetedbj4x4dgkstnc7ewxloqohjpupf7a.domains.proton.ch
+  ttl: 3600
+  comment: "ProtonMail DomainKey"
