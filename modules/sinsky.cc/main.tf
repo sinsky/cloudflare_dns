@@ -15,7 +15,7 @@ resource "cloudflare_dns_record" "records" {
   for_each = local.dns_records
 
   zone_id  = var.cloudflare_zone_id
-  name     = each.key
+  name     = each.value.name
   type     = each.value.type
   content    = each.value.content
   ttl      = lookup(each.value, "ttl", 3600)
