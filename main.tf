@@ -11,12 +11,8 @@ provider "cloudflare" {
   api_token = var.cloudflare_api_token
 }
 
-resource "cloudflare_dns_record" "www" {
-  name    = "www"
-  ttl     = 3600
-  type    = "A"
-  zone_id = var.cloudflare_zone_id
-  content = "100.109.137.3"
-  proxied = false
-  comment = "terraform Demo"
+module "domain_sinsky_cc" {
+  source = "./modules/sinsky.cc"
+
+  cloudflare_zone_id = var.zone_id_sinsky_cc
 }
