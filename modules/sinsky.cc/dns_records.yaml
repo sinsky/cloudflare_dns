@@ -6,8 +6,8 @@ app:
   proxied: false
   comment: "App server by Tailscale"
 
-app.*:
-  name: app.*
+wildcard-app:
+  name: "*.app"
   type: A
   content: 100.109.137.3
   ttl: 3600
