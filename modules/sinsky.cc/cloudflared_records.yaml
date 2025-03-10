@@ -1,0 +1,14 @@
+gitea:
+  name: testea
+  type: CNAME
+  content: d0f2f49b-7159-43b7-86ee-233223334c67.cfargotunnel.com
+  ttl: 1
+  proxied: true
+  comment: "Gitea by Cloudflare Tunnel"
+note:
+  name: secure-note
+  type: CNAME
+  content: d0f2f49b-7159-43b7-86ee-233223334c67.cfargotunnel.com
+  ttl: 1
+  proxied: true
+  comment: "Note by Cloudflare Tunnel"

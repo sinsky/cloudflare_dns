@@ -10,7 +10,8 @@ terraform {
 locals {
   mail_dns = yamldecode(file("${path.module}/mail_records.yaml"))
   tailscale_dns = yamldecode(file("${path.module}/tailscale_records.yaml"))
-  dns_records = merge(local.mail_dns, local.tailscale_dns)
+  tunnel_dns = yamldecode(file("${path.module}/cloudflared_records.yaml"))
+  dns_records = merge(local.mail_dns, local.tailscale_dns, local.tunnel_dns)
 }
 
 resource "cloudflare_dns_record" "records" {
