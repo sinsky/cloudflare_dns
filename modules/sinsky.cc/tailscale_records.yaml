@@ -1,3 +1,17 @@
+ts:
+  name: ts
+  type: A
+  content: 100.68.0.72
+  ttl: 3600
+  proxied: false
+  comment: "Raspberry Pi by Tailscale server"
+wildcard-ts:
+  name: "*.ts"
+  type: A
+  content: 100.68.0.72
+  ttl: 3600
+  proxied: false
+  comment: "Raspberry Pi by Tailscale server"
 app:
   name: app
   type: A
@@ -5,7 +19,6 @@ app:
   ttl: 3600
   proxied: false
   comment: "App server by Tailscale"
-
 wildcard-app:
   name: "*.app"
   type: A
