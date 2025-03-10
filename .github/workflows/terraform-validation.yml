@@ -99,6 +99,8 @@ jobs:
                 repo: context.repo.repo,
                 comment_id: botComment.id,
                 body: output
+              }).catch(err => {
+                console.error("Failed to update comment:", err);
               })
             } else {
               github.rest.issues.createComment({
@@ -106,5 +108,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 body: output
+              }).catch(err => {
+                console.error("Failed to create comment:", err);
               })
             }
