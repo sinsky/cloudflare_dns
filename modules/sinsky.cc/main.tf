@@ -20,7 +20,7 @@ resource "cloudflare_dns_record" "records" {
   name     = each.value.name
   type     = each.value.type
   content    = each.value.content
-  ttl      = lookup(each.value, "ttl", 3600)
+  ttl      = lookup(each.value, "ttl", 1) // Default to Auto = 1
   proxied  = lookup(each.value, "proxied", false)
   priority = lookup(each.value, "priority", null)
   comment  = lookup(each.value, "comment", null)
