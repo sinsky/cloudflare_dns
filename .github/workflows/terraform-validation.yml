@@ -17,6 +17,7 @@ jobs:
     env:
       TF_VAR_cloudflare_api_token: ${{ secrets.TF_VAR_cloudflare_api_token }}
       TF_VAR_zone_id_sinsky_cc: ${{ secrets.TF_VAR_zone_id_sinsky_cc }}
+      PG_CONN_STR: ${{ secrets.PG_CONN_STR }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
