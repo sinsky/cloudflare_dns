@@ -53,6 +53,7 @@ jobs:
         continue-on-error: true
 
       - uses: actions/github-script@v6
+        id: comment
         if: github.event_name == 'pull_request'
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
@@ -116,3 +117,18 @@ jobs:
                 console.error("Failed to create comment:", err);
               })
             }
+
+            // 4. Check if any of the Terraform steps failed and set output
+            const hasErrors = process.env.FMT_OUTCOME === 'failure' ||
+              process.env.INIT_OUTCOME === 'failure' ||
+              process.env.FORMAT_OUTCOME === 'failure' ||
+              process.env.VALIDATE_OUTCOME === 'failure' ||
+              process.env.PLAN_OUTCOME === 'failure';
+
+            return hasErrors;
+
+      - name: Check Terraform Results
+        if: steps.comment.outputs.result == 'true'
+        run: |
+          echo "::error::Terraform validation failed. See the PR comment for details."
+          exit 1
