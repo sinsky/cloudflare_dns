@@ -26,7 +26,7 @@ nvim .env
 `.env`ファイルには以下の変数を設定してください：
 
 ```
-# PostgreSQL接続文字列（Turso DB用）
+# PostgreSQL接続文字列（NeonDB用）
 PG_CONN_STR=postgres://cftf_owner:password@your-neon-db.region.provider.neon.tech/cftf?sslmode=require
 
 # CloudFlare認証情報（必要に応じて）
