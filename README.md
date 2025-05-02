@@ -27,6 +27,7 @@ nvim .env
 
 ```
 # PostgreSQL接続文字列（NeonDB用）
+# <your-neon-db.region.provider.neon.tech> は自分のDB URLに変更してください
 PG_CONN_STR=postgres://cftf_owner:password@your-neon-db.region.provider.neon.tech/cftf?sslmode=require
 
 # CloudFlare認証情報（必要に応じて）
