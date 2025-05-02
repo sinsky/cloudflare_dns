@@ -2,10 +2,6 @@ name: Terraform Validation
 
 on:
   pull_request:
-    paths:
-      - '**/*.tf'
-      - '.terraform-version'
-      - '.github/workflows/terraform-validation.yml'
 
 permissions:
   pull-requests: write
@@ -21,6 +17,19 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Check for Terraform file changes
+        id: tf-changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            terraform:
+              - "**/*.tf"
+              - ".terraform-version"
+
+      - name: Skip Terraform validation
+        if: steps.tf-changes.outputs.terraform != 'true'
+        run: echo "No Terraform files changed, skipping validation."
 
       - name: Read .terraform-version
         id: terraform-version
